@@ -24,8 +24,14 @@ constructor(public getData: FlexmonsterService ) {}
       this.data = jsonData;
       this.pivot.flexmonster.updateData({data: this.data});
       console.log(this.data);
-    });
-  }
+      });
+}
   ngAfterViewInit() {
   }
+  public getReport = () => {
+  const report = this.pivot.flexmonster.getReport();
+  console.log(report);
+  }
 }
+
+

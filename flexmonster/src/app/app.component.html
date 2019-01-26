@@ -1,5 +1,12 @@
-<fm-pivot #pivot
-  [licenseKey]="'Z7TF-XD7F2M-690L4F-716C2H'"
-  [toolbar]="true"
-  [report]="'https://cdn.flexmonster.com/reports/report.json'">
+
+<fm-pivot #pivot [componentFolder]="'https://cdn.flexmonster.com/'"
+[toolbar]="true"
+[width]="'100%'"
+[height]="500"
+[licenseKey]="'Z7TF-XD7F2M-690L4F-716C2H'"
+[report]="'https://cdn.flexmonster.com/reports/report.json'"
+>
 </fm-pivot>
+
+<button (click)="getReport()"></button>
+ 
