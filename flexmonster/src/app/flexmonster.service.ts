@@ -11,10 +11,17 @@ export class FlexmonsterService {
   constructor(private http: Http) { }
 
   getJsonData() {
-    return this.http.get('https://next.json-generator.com/api/json/get/4y5nqZSXL').map(res => {
+    return this.http.get('https://next.json-generator.com/api/json/get/EJkUF_LQ8').map(res => {
       const jsonData = res.json();
-      console.log(jsonData);
+      console.log(res);
       return jsonData;
+    });
+  }
+  getDeltaTipos() {
+    return this.http.get('https://next.json-generator.com/api/json/get/VymQV_8QI').map(res => {
+      const deltaTipos = res.json();
+      console.log(deltaTipos);
+      return deltaTipos;
     });
   }
 }

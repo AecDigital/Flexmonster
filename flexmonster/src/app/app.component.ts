@@ -16,22 +16,27 @@ export class AppComponent implements OnInit, AfterViewInit {
   title = 'app';
   @ViewChild('pivot') pivot: FlexmonsterPivot;
   data: any;
+  deltaTipos: any;
 
 constructor(public getData: FlexmonsterService ) {}
 
   ngOnInit() {
     this.getData.getJsonData().subscribe((jsonData) => {
       this.data = jsonData;
-      this.pivot.flexmonster.updateData({data: this.data});
-      console.log(this.data);
+      this.pivot.flexmonster.load('https://next.json-generator.com/api/json/get/EJkUF_LQ8');
       });
 }
-  ngAfterViewInit() {
-  }
-  public getReport = () => {
-  const report = this.pivot.flexmonster.getReport();
-  console.log(report);
-  }
+ngAfterViewInit() {}
+
+public getReport = () => {
+const report = this.pivot.flexmonster.getReport();
+console.log(report);
 }
 
-
+public loadDeltaTipos = () => {
+this.getData.getDeltaTipos().subscribe((deltaTipos) => {
+this.deltaTipos = deltaTipos;
+this.pivot.flexmonster.updateData({data: this.deltaTipos});
+});
+}
+}
