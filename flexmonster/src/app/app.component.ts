@@ -23,7 +23,7 @@ constructor(public getData: FlexmonsterService ) {}
   ngOnInit() {
     this.getData.getJsonData().subscribe((jsonData) => {
       this.data = jsonData;
-      this.pivot.flexmonster.load('https://next.json-generator.com/api/json/get/EJkUF_LQ8');
+      console.log(this.data);
       });
 }
 ngAfterViewInit() {}
