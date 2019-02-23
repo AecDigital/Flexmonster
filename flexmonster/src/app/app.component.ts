@@ -21,10 +21,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 constructor(public getData: FlexmonsterService ) {}
 
   ngOnInit() {
-    this.getData.getJsonData().subscribe((jsonData) => {
-      this.data = jsonData;
-      console.log(this.data);
-      });
+    this.loadDeltaTipos();
 }
 ngAfterViewInit() {}
 
@@ -39,4 +36,5 @@ this.deltaTipos = deltaTipos;
 this.pivot.flexmonster.updateData({data: this.deltaTipos});
 });
 }
+
 }
