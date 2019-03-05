@@ -1,12 +1,12 @@
-import { Injectable } from "@angular/core";
-import { Http, Response } from "@angular/http";
-import { Observable } from "../../node_modules/rxjs";
-import "rxjs/add/operator/map";
-import { KeyRegistry } from "@angular/core/src/di/reflective_key";
-import { ValueTransformer } from "@angular/compiler/src/util";
+import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import { Observable } from '../../node_modules/rxjs';
+import 'rxjs/add/operator/map';
+import { KeyRegistry } from '@angular/core/src/di/reflective_key';
+import { ValueTransformer } from '@angular/compiler/src/util';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class FlexmonsterService {
   constructor(private http: Http) {}
@@ -34,37 +34,23 @@ export class FlexmonsterService {
       });
   }
 
-//   getDeltaTipos() {
-//     return this.http
-//       .get('https://next.json-generator.com/api/json/get/Nk1PGQ5SI')
-//       .map(res => {
-//         const deltaTipos = res.json();
-//         deltaTipos.data.forEach(element => {
-//           let dataItem = [{}];
-//           element.dataItems.map((e => {
-//           const key = e.id;
-//           const value = e.value;
-//           dataItem.push({
-//             [key]: value
-//           });
-//         }));
-//         const data = Object.assign(dataItem);
-//         console.log(data);
-// });
-//       });
-//     }
     getDeltaTipos() {
-      return this.http
-        .get('https://next.json-generator.com/api/json/get/Nk1PGQ5SI')
-        .map(res => {
-          const deltaTipos = res.json();
-          const flexMonsterData = [];
-          deltaTipos.data.forEach(element => {
-            const dataItem = Object.assign({}, ...(element.dataItems.map(item => ({ [item.id]: item.value }))));
-            flexMonsterData.push(dataItem);
-        });
-        console.log(flexMonsterData);
-        return flexMonsterData;
-  });
-}
+      return this.http.get('https://cdn.flexmonster.com/reports/report-flat.json').map(res => {
+        const deltaTipos = res.json();
+        return deltaTipos;
+      });
+//       return this.http
+//         .get('https://next.json-generator.com/api/json/get/Nk1PGQ5SI')
+//         .map(res => {
+//           const deltaTipos = res.json();
+//           const flexMonsterData = [];
+//           deltaTipos.data.forEach(element => {
+//             const dataItem = Object.assign({}, ...(element.dataItems.map(item => ({ [item.id]: item.value }))));
+//             flexMonsterData.push(dataItem);
+//         });
+//         console.log(flexMonsterData);
+//         return flexMonsterData;
+//   });
+// }
+    }
 }
